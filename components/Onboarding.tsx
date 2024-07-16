@@ -1,9 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
+
 import Colors from '@/constants/Colors';
 import ScreenOne from './onboarding/ScreenOne';
 import ScreenTwo from './onboarding/ScreenTwo';
+import ScreenThree from './onboarding/ScreenThree';
 
 const Onboarding = () => {
   const [screen, setScreen] = useState(1);
@@ -11,6 +12,7 @@ const Onboarding = () => {
     <View style={styles.container}>
       {screen === 1 && <ScreenOne setScreen={setScreen} />}
       {screen === 2 && <ScreenTwo setScreen={setScreen} />}
+      {screen === 3 && <ScreenThree setScreen={setScreen} />}
     </View>
   );
 };

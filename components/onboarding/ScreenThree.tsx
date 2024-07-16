@@ -13,7 +13,7 @@ type ScreenType = {
 };
 
 // Onboarding Screen Two
-const ScreenTwo = ({ setScreen }: ScreenType) => {
+const ScreenThree = ({ setScreen }: ScreenType) => {
   const router = useRouter();
   // Return JsX
   return (
@@ -21,11 +21,11 @@ const ScreenTwo = ({ setScreen }: ScreenType) => {
       <StatusBar
         style="light"
         animated
-        backgroundColor={Colors.dark.primaryOrange}
+        backgroundColor={Colors.dark.primaryDark}
       />
       <View style={styles.textContainer}>
-        <Text style={styles.heading}>BEAUTY</Text>
-        <Text style={styles.heading}>IS YOU!</Text>
+        <Text style={styles.heading}>FEEL YA</Text>
+        <Text style={styles.heading}>STEEEEZ!</Text>
         <TextButton
           text="Get Styled by Salonix"
           textColor={Colors.dark.white}
@@ -38,44 +38,41 @@ const ScreenTwo = ({ setScreen }: ScreenType) => {
 
       {/* Text Overlay 001 */}
       <View style={styles.textOverlay01}>
-        <Text style={styles.overlayText}>BEAUTY</Text>
-        <Text style={styles.overlayText}>IS YOU!</Text>
+        <Text style={styles.overlayText}>FEEL YA</Text>
+        <Text style={styles.overlayText}>STEEEEZ!</Text>
       </View>
 
       {/* Text Overlay 002 */}
       <View style={styles.textOverlay02}>
-        <Text style={styles.overlayText}>BEAUTY</Text>
-        <Text style={styles.overlayText}>IS YOU!</Text>
+        <Text style={styles.overlayText}>FEEL YA</Text>
+        <Text style={styles.overlayText}>STEEEEZ!</Text>
       </View>
 
       {/* Image of Model */}
       <Image
-        source={require('../../assets/images/onboarding/screen-img-02.png')}
+        source={require('../../assets/images/onboarding/screen-img-03.png')}
         style={styles.image}
       />
 
       {/* Navigation Text */}
       <View style={styles.navigation}>
-        <Text style={styles.navText} onPress={() => setScreen(3)}>
-          {'Continue >'}
-        </Text>
         <Text
           style={styles.navText}
           onPress={() => router.push('/(auth)/SignIn')}
         >
-          {'Skip >>'}
+          GET STARTED
         </Text>
       </View>
     </View>
   );
 };
 
-export default ScreenTwo;
+export default ScreenThree;
 
 // Define styles for component
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.dark.primaryOrange,
+    backgroundColor: Colors.dark.primaryDark,
     paddingTop: 100,
     position: 'relative',
     flex: 1,
@@ -99,6 +96,11 @@ const styles = StyleSheet.create({
   },
   navText: {
     color: Colors.dark.white,
+    backgroundColor: Colors.dark.primaryOrange,
+    padding: 5,
+    width: 100,
+    textAlign: 'center',
+    borderRadius: 5,
   },
   image: {
     position: 'absolute',
@@ -118,9 +120,9 @@ const styles = StyleSheet.create({
     fontSize: 85,
     fontFamily: 'PoppinsExtraBold',
     color: Colors.dark.white,
-    lineHeight: 85,
+    lineHeight: 90,
     textAlign: 'center',
     marginTop: -10,
-    opacity: 0.12,
+    opacity: 0.06,
   },
 });
