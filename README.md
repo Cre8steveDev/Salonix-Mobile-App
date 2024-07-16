@@ -19,7 +19,7 @@ I'm equally using these Mobile App projects to solidify my skills in Design (com
 
 ## Productivity Tools
 
-- React Native and Expo Code Snippets (By Cre8steve)
+- React Native and Expo Code Snippets (VSCode Extension by Cre8steve)
 - Visual Studio Code
 - Claude AI for debugging and documentation research
 
@@ -29,4 +29,8 @@ I'm equally using these Mobile App projects to solidify my skills in Design (com
 - Change directory: `cd salonix-mobile-app`
 - Install dependencies: `npm install`
 
-## Errrrm..... more details coming, i guess
+## Wanna try your hands on the project?
+
+Get the design here: <https://www.figma.com/community/file/1394970733748334825/salon-booking-mobile-app>
+
+## Errrrm..... more details coming, I guess
