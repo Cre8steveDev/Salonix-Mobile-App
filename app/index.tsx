@@ -4,22 +4,27 @@ import { StatusBar } from 'expo-status-bar';
 import Colors from '@/constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
+import { Redirect } from 'expo-router';
+import Onboarding from '@/components/Onboarding';
 
 const Index = () => {
   // @ts-ignore
-  const app = useSelector((state) => state.app as TAppState);
-  // @ts-ignore
   const auth = useSelector((state) => state.auth as TAuthState);
+  // @ts-ignore
+  const app = useSelector((state) => state.app as TAppState);
+  const mode = app.preferredTheme;
 
-  console.log('========================');
-  console.log(app);
-  console.log(auth);
-  console.log('========================');
+  if (!auth.firstTimer) {
+    <Redirect href={'/(tabs)/Home'} />;
+  }
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar style="light" backgroundColor={Colors.light.primaryDark} />
-      <Text>Hello World!!!!!</Text>
+      <StatusBar
+        style="light"
+        backgroundColor={Colors[mode].primaryHighlight}
+      />
+      <Onboarding />
     </SafeAreaView>
   );
 };

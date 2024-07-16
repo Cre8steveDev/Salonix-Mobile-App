@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 // Initial appState shape
 
 const initialState: TAppState = {
-  preferredTheme: 'light',
+  preferredTheme: 'dark',
   showNotifications: true,
 };
 
