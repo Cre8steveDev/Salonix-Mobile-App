@@ -29,7 +29,7 @@ const ScreenThree = ({ setScreen }: ScreenType) => {
         <TextButton
           text="Get Styled by Salonix"
           textColor={Colors.dark.white}
-          bgColor={Colors.dark.primaryHighlight}
+          bgColor={Colors.dark.primaryDark}
           width={150}
           padding={5}
           styles={{ marginTop: -5, marginHorizontal: 'auto' }}
@@ -52,13 +52,16 @@ const ScreenThree = ({ setScreen }: ScreenType) => {
       <Image
         source={require('../../assets/images/onboarding/screen-img-03.png')}
         style={styles.image}
+        alt="Onboarding Model"
       />
 
       {/* Navigation Text */}
       <View style={styles.navigation}>
         <Text
           style={styles.navText}
-          onPress={() => router.push('/(auth)/SignIn')}
+          onPress={() => {
+            router.push('/(auth)/SignIn');
+          }}
         >
           GET STARTED
         </Text>
@@ -72,7 +75,7 @@ export default ScreenThree;
 // Define styles for component
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.dark.primaryDark,
+    backgroundColor: Colors.dark.primaryHighlight,
     paddingTop: 100,
     position: 'relative',
     flex: 1,
@@ -105,7 +108,7 @@ const styles = StyleSheet.create({
   image: {
     position: 'absolute',
     marginHorizontal: 'auto',
-    bottom: -110,
+    bottom: -50,
     width: '120%',
     transform: [{ translateX: -40 }],
   },

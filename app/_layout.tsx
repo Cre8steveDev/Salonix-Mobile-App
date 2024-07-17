@@ -11,6 +11,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { store, persistor } from '@/providers/redux/store';
 
+// Import toast Provider
+import { RootSiblingParent } from 'react-native-root-siblings';
+
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary,
@@ -58,11 +61,14 @@ function RootLayoutNav() {
   return (
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        </Stack>
+        <RootSiblingParent>
+          <Stack>
+            <Stack.Screen name="index" options={{ headerShown: false }} />
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+          </Stack>
+        </RootSiblingParent>
       </PersistGate>
     </Provider>
   );
