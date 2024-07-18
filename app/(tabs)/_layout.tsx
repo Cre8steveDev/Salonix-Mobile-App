@@ -1,22 +1,34 @@
-import { Tabs } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Redirect, Tabs } from 'expo-router';
+import { Ionicons, Entypo, FontAwesome } from '@expo/vector-icons';
+
 import Colors from '@/constants/Colors';
 import { Platform } from 'react-native';
+import { useSelector } from 'react-redux';
 
 export default function TabLayout() {
+  //  Return to Login Page if user is not authenticated
+  //@ts-ignore
+  const auth = useSelector((state) => state.auth);
+
+  if (!auth.user) {
+    return <Redirect href="/(auth)/Signin" />;
+  }
+
   // Return Tab Layout
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: '#474839',
-        tabBarInactiveTintColor: '#FFFFFF',
+        tabBarActiveTintColor: Colors.dark.primaryOrange,
+        tabBarInactiveTintColor: Colors.dark.white,
         tabBarStyle: {
           height: 65,
-          width: '93%',
+          width: '100%',
+          paddingHorizontal: 20,
           marginHorizontal: 'auto',
-          marginBottom: 10,
-          borderWidth: 3,
-          borderRadius: 20,
+          backgroundColor: Colors.dark.primaryDark,
+          // marginBottom: 10,
+          // borderWidth: 3,
+          // borderRadius: 20,
           //   borderColor: Colors.primaryYellow,
           //   borderTopColor: Colors.primaryYellow,
           //   backgroundColor: Colors.secondaryBlack,
@@ -36,7 +48,7 @@ export default function TabLayout() {
           }),
         },
         tabBarLabelStyle: {
-          fontSize: 7,
+          fontSize: 9,
           fontFamily: 'PoppinsRegular',
           marginBottom: 12,
           marginTop: -8,
@@ -49,7 +61,7 @@ export default function TabLayout() {
           title: 'Home',
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name="home" size={!focused ? size : 35} color={color} />
+            <Ionicons name="home" size={!focused ? size : 30} color={color} />
           ),
         }}
       />
@@ -59,9 +71,9 @@ export default function TabLayout() {
           title: 'Popular',
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name="shuffle"
-              size={!focused ? size : 35}
+            <FontAwesome
+              name="newspaper-o"
+              size={!focused ? size : 30}
               color={color}
             />
           ),
@@ -74,11 +86,7 @@ export default function TabLayout() {
           title: 'Fund Wallet',
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons
-              name="bookmark"
-              size={!focused ? size : 35}
-              color={color}
-            />
+            <Entypo name="wallet" size={!focused ? size : 30} color={color} />
           ),
         }}
       />
@@ -89,7 +97,7 @@ export default function TabLayout() {
           title: 'Profile',
           headerShown: false,
           tabBarIcon: ({ focused, color, size }) => (
-            <Ionicons name="person" size={!focused ? size : 35} color={color} />
+            <Ionicons name="person" size={!focused ? size : 30} color={color} />
           ),
         }}
       />

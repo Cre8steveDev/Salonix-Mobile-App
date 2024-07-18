@@ -3,7 +3,21 @@ type TAppState = {
   showNotifications: boolean;
 };
 
+type LoggedInUser = {
+  fullName: string;
+  phoneNumber: string;
+  profilePhoto: string;
+  gender: string;
+  email: string;
+};
+
+type AuthToken = {
+  id: string;
+  tokenExpiry: number;
+};
+
 type TAuthState = {
-  user: null | any;
+  user: null | LoggedInUser;
+  auth: null | AuthToken;
   firstTimer: boolean;
 };

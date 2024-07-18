@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Colors from '@/constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -14,8 +14,12 @@ const Index = () => {
   const app = useSelector((state) => state.app as TAppState);
   const mode = app.preferredTheme;
 
+  if (auth.user) {
+    return <Redirect href={'/(tabs)/Home'} />;
+  }
+
   if (!auth.firstTimer) {
-    <Redirect href={'/(tabs)/Home'} />;
+    return <Redirect href="/(auth)/Signin" />;
   }
 
   return (

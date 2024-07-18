@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     fontFamily: 'PoppinsRegular',
     fontSize: 18,
     padding: 8,
+    paddingLeft: 15,
     paddingTop: 11,
     borderRadius: 10,
   },

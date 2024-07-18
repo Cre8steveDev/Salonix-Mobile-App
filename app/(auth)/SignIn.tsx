@@ -1,6 +1,5 @@
 import {
   Alert,
-  Image,
   ImageBackground,
   ScrollView,
   StyleSheet,
@@ -10,7 +9,7 @@ import {
   View,
 } from 'react-native';
 import React, { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { StatusBar } from 'expo-status-bar';
 import Colors from '@/constants/Colors';
 import CustomTextInput from '@/components/form/CustomTextInput';
@@ -19,8 +18,13 @@ import CustomSubmitBtn from '@/components/form/CustomSubmitBtn';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import useToast from '@/components/Toasts';
-import axios from 'axios';
+
+// import Axios Instance created with base url
 import API from '@/constants/API';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '@/providers/redux/authSlice';
+
+// Define Component
 const SignIn = () => {
   //  Define Form States
   const [email, setEmail] = useState('');
@@ -28,15 +32,19 @@ const SignIn = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Router instance for navigation
   const router = useRouter();
+
+  // Dispatch for redux global state
+  const dispatch = useDispatch();
 
   // Define formSubmission function to login
   const handleSubmitForm = async () => {
-    if (email.length < 8 || !email.includes('@')) {
+    if (email.trim().length < 8 || !email.includes('@')) {
       useToast('Please provide a valid email.');
       return;
     }
-    if (password.length < 8) {
+    if (password.trim().length < 8) {
       useToast('Please use a password of atleast 8 characters');
       return;
     }
@@ -45,18 +53,25 @@ const SignIn = () => {
 
     try {
       // Make call to backend
-      const response = await API.post(
-        `api/auth/signin`,
-        { email, password },
-        { withCredentials: true, headers: { Authorization: 'Basic y5y5y5y5y' } }
-      );
+      const response = await API.post(`api/auth/signin`, { email, password });
       // TODO:
       // Store User and Auth to Local State
+      const { user, auth } = response.data;
+
+      dispatch(loginSuccess({ user, auth }));
+
+      // Navigate user to the Home Screen on successful Login
+      router.dismissAll();
+      router.push('/(tabs)/Home');
+
+      // Error Handling
     } catch (error: any) {
       if (error?.message === 'Network Error')
         return useToast('Sorry. A Network Error Occured', 'red');
 
       if (error.response) return useToast('Invalid Login Credentials.', 'red');
+
+      useToast('Sorry. An Unknown Error occured. 🥲');
     } finally {
       setLoading(false);
     }
@@ -160,9 +175,9 @@ const SignIn = () => {
         />
 
         {/* Already Logged In Text Copy */}
-        <TouchableOpacity onPress={() => router.push('/(auth)/Register')}>
+        <TouchableOpacity onPress={() => router.push('/(auth)/SignUp')}>
           <Text style={styles.subtext}>
-            {'Already have an account?  '}
+            {'First Time User 😃?  '}
             <Text style={styles.textCTA}> Sign Up Now!</Text>
           </Text>
         </TouchableOpacity>
