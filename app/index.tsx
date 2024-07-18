@@ -17,14 +17,20 @@ const Index = () => {
   // router instance
   const router = useRouter();
 
-  if (auth.user) {
-    return <Redirect href={'/(tabs)/Home'} />;
-  }
+  const conditionalRedirect = () => {
+    if (auth.user) {
+      return <Redirect href={'/(tabs)/Home'} />;
+    }
 
-  if (!auth.firstTimer) {
-    router.dismissAll();
-    return <Redirect href="/(auth)/SignIn" />;
-  }
+    if (!auth.firstTimer) {
+      // router.dismissAll();
+      return <Redirect href="/(auth)/SignIn" />;
+    }
+  };
+
+  useEffect(() => {
+    conditionalRedirect();
+  }, []);
 
   return (
     <SafeAreaView style={styles.safeArea}>

@@ -82,12 +82,19 @@ const PopularHairstyles = () => {
           <FlatList
             data={hairStyles}
             renderItem={({ item }) => (
-              <StyleCard key={item.image} image={item.image} name={item.name} />
+              <StyleCard
+                key={item.image}
+                image={item.image}
+                name={item.name}
+                width={180}
+                height={250}
+              />
             )}
             keyExtractor={(item) => item.image}
             initialNumToRender={5}
             inverted={false}
             numColumns={1}
+            ListEmptyComponent={<EmptyList />}
             //   onEndReached={handleLoadMore}
             contentContainerStyle={styles.contentContainer}
             horizontal={true}
@@ -101,22 +108,45 @@ const PopularHairstyles = () => {
 
 export default PopularHairstyles;
 
-// Style Card Component
+// Empty List Component
+export const EmptyList = () => {
+  return (
+    <View style={styles.emptyContainer}>
+      <Text style={styles.emptyHeading}>Ooops! 🫠</Text>
+      <Text style={styles.emptySubtitle}>No Styles to show at the moment.</Text>
+    </View>
+  );
+};
 
-const StyleCard = ({ image, name }: { name: string; image: string }) => {
+// Style Card Component
+export const StyleCard = ({
+  image,
+  name,
+  width,
+  height,
+}: {
+  name: string;
+  image: string;
+  width: number;
+  height: number;
+}) => {
   return (
     <Image
       source={{ uri: image }}
-      style={{ width: 180, height: 250, backgroundColor: 'lightgrey' }}
+      style={{
+        width,
+        height,
+        backgroundColor: Colors.dark.primaryOrange,
+        borderRadius: 10,
+      }}
       placeholder={blurhash}
       contentFit="cover"
       transition={800}
       contentPosition={{ top: 0, left: 0 }}
       alt={name}
       cachePolicy="memory"
-      recyclingKey="image"
+      recyclingKey={image}
       accessible={true}
-      onError={(error) => console.error('Image loading error:', error)}
     />
   );
 };
@@ -128,7 +158,9 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   contentContainer: {
-    // width: '100%',
+    paddingLeft: 20,
+    marginBottom: 20,
+    gap: 15,
   },
   skeletonContainer: {
     flexDirection: 'row',
@@ -155,4 +187,7 @@ const styles = StyleSheet.create({
   headingLink: {
     color: Colors.dark.primaryOrange,
   },
+  emptyContainer: {},
+  emptyHeading: {},
+  emptySubtitle: {},
 });

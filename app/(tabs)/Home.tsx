@@ -8,6 +8,8 @@ import MiniDashboard from '@/components/home/MiniDashboard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ServicesGrid from '@/components/home/ServicesGrid';
 import PopularHairstyles from '@/components/home/PopularStyles';
+import ServiceDetail from '@/components/home/ServiceDetail';
+import { Modal } from 'react-native';
 
 const Home = () => {
   // @ts-ignore
@@ -44,6 +46,35 @@ const Home = () => {
         />
         {/* Popular Hairstyles */}
         <PopularHairstyles />
+        {/*  */}
+        {/* Show Detail Modal Here */}
+        <Modal
+          animationType="slide"
+          visible={showDetailModal}
+          presentationStyle="overFullScreen"
+          onRequestClose={() => setShowDetailModal(false)}
+        >
+          <ServiceDetail
+            detailType={detailType}
+            setShowBookingModal={setShowBookingModal}
+            setShowDetailModal={setShowDetailModal}
+          />
+        </Modal>
+
+        {/* Show Modal for Booking Screen */}
+        <Modal
+          animationType="slide"
+          visible={showDetailModal}
+          presentationStyle="overFullScreen"
+          onRequestClose={() => setShowDetailModal(false)}
+        >
+          <ServiceDetail
+            detailType={detailType}
+            setShowBookingModal={setShowBookingModal}
+            setShowDetailModal={setShowDetailModal}
+          />
+        </Modal>
+        {/* End of Definitions */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -52,7 +83,9 @@ const Home = () => {
 export default Home;
 
 const styles = StyleSheet.create({
-  scrollView: {},
+  scrollView: {
+    position: 'relative',
+  },
   safeArea: {
     flex: 1,
     backgroundColor: Colors.dark.primaryDark,
