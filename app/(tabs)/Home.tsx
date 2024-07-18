@@ -7,6 +7,7 @@ import { Redirect } from 'expo-router';
 import MiniDashboard from '@/components/home/MiniDashboard';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ServicesGrid from '@/components/home/ServicesGrid';
+import PopularHairstyles from '@/components/home/PopularStyles';
 
 const Home = () => {
   // @ts-ignore
@@ -35,13 +36,14 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
       >
         {/* Mini Dashboard  */}
-        <MiniDashboard user={user} />
+        <MiniDashboard user={user} auth={auth!} />
         {/* Our Services Grid */}
         <ServicesGrid
           setShowDetailModal={setShowDetailModal}
           setDetailType={setDetailType}
         />
         {/* Popular Hairstyles */}
+        <PopularHairstyles />
       </ScrollView>
     </SafeAreaView>
   );

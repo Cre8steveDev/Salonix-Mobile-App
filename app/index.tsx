@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import Colors from '@/constants/Colors';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
-import { Redirect } from 'expo-router';
+import { Redirect, useRouter } from 'expo-router';
 import Onboarding from '@/components/Onboarding';
 
 const Index = () => {
@@ -14,12 +14,16 @@ const Index = () => {
   const app = useSelector((state) => state.app as TAppState);
   const mode = app.preferredTheme;
 
+  // router instance
+  const router = useRouter();
+
   if (auth.user) {
     return <Redirect href={'/(tabs)/Home'} />;
   }
 
   if (!auth.firstTimer) {
-    return <Redirect href="/(auth)/Signin" />;
+    router.dismissAll();
+    return <Redirect href="/(auth)/SignIn" />;
   }
 
   return (

@@ -9,6 +9,7 @@ type LoggedInUser = {
   profilePhoto: string;
   gender: string;
   email: string;
+  walletId: string;
 };
 
 type AuthToken = {

@@ -18,6 +18,7 @@ export const authSlice = createSlice({
       }
     },
     logOut: (state) => {
+      console.log(state);
       state.user = null;
       state.auth = null;
     },

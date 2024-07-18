@@ -61,8 +61,7 @@ const SignIn = () => {
       dispatch(loginSuccess({ user, auth }));
 
       // Navigate user to the Home Screen on successful Login
-      router.dismissAll();
-      router.push('/(tabs)/Home');
+      return router.push('/(tabs)/Home');
 
       // Error Handling
     } catch (error: any) {

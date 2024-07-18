@@ -103,6 +103,8 @@ const SignUp = () => {
 
       // Error handling below
     } catch (error: any) {
+      // Reset Loading
+      setLoading(false);
       console.log('Error message: ', error);
       if (error?.message === 'Network Error')
         return useToast('Sorry. A Network Error Occured', 'red');

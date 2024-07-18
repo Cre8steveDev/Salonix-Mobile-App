@@ -1,31 +1,97 @@
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 import CustomSubmitBtn from '../form/CustomSubmitBtn';
+import API from '@/constants/API';
+import useToast from '../Toasts';
+import { Ionicons } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
+import { logOut } from '@/providers/redux/authSlice';
 
 // Mini Dashboard Component Prop
 type MiniDashboardProp = {
   user: LoggedInUser;
+  auth: AuthToken;
 };
 
-const MiniDashboard = ({ user }: MiniDashboardProp) => {
+const MiniDashboard = ({ user, auth }: MiniDashboardProp) => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const [currentBalance, setCurrentBalance] = useState('------');
+  const [refreshBalance, setRefreshBalance] = useState(1);
+  const [loadingBalance, setLoadingBalance] = useState(false);
+
+  // Get Wallet Reference
+  const walletID = useMemo(() => {
+    return user.walletId.split('').slice(10).join('');
+  }, []);
+
   // Handle Redirect to Fund Wallet Screen
   const handleRedirect = () => {
     router.push('/(tabs)/FundWallet');
   };
 
+  // Get Wallet Balance
+  useEffect(() => {
+    setLoadingBalance(true);
+    API.get('api/auth/get-wallet', {
+      headers: { Authorization: `Basic ${auth.id}` },
+    })
+      .then((response) => {
+        // If status returns 401 Unauthorized log user out.
+        if (response.status === 401) {
+          useToast('Session has expired. Sign in again.', 'orange', 'white');
+          dispatch(logOut());
+          router.push('/(auth)/Login');
+        }
+
+        const { wallet } = response.data;
+        setCurrentBalance(
+          `N${(wallet.currentBalance as number).toLocaleString()}`
+        );
+        setLoadingBalance(false);
+      })
+      .catch((error) => {
+        // console.log(error);
+        setLoadingBalance(false);
+        useToast('Unable to load current balance.', 'red', 'white');
+      });
+  }, [refreshBalance]);
+
+  // Return JSX
   return (
     <View style={styles.firstContainer}>
       <View style={styles.container}>
         <Text style={styles.topText}>{`Welcome, ${
           user.fullName.split(' ')[0]
         }`}</Text>
-        <Text style={styles.heading}>N25,000</Text>
+
+        {/* Container for amount and refresh */}
+        <View style={styles.balanceContainer}>
+          {loadingBalance && <Text style={styles.loadingText}>Loading...</Text>}
+
+          {!loadingBalance && (
+            <>
+              <Text style={styles.heading}>{`${currentBalance}`}</Text>
+
+              <TouchableOpacity>
+                <Ionicons
+                  name="refresh-circle"
+                  size={34}
+                  color={'white'}
+                  onPress={() => setRefreshBalance((prev) => prev + 1)}
+                  style={{ paddingBottom: 10 }}
+                />
+              </TouchableOpacity>
+            </>
+          )}
+        </View>
+
+        {/* Substitle for wallet id */}
         <Text style={styles.subText}>
           WalletID:
-          <Text style={styles.subTextBold}>{'  123456788'}</Text>
+          <Text style={styles.subTextBold}>{`  ${walletID}`}</Text>
         </Text>
       </View>
 
@@ -54,7 +120,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'flex-start',
     width: '100%',
-    // gap: 5,
+  },
+  balanceContainer: {
+    flexDirection: 'row',
+    gap: 10,
+    alignItems: 'center',
+  },
+  loadingText: {
+    height: 60,
+    fontSize: 20,
+    color: 'white',
   },
   topText: {
     fontSize: 18,
