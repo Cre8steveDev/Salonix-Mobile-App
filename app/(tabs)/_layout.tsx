@@ -11,7 +11,7 @@ export default function TabLayout() {
   const auth = useSelector((state) => state.auth);
 
   if (!auth.user) {
-    // return <Redirect href="/(auth)/Signin" />;
+    return <Redirect href="/(auth)/Signin" />;
   }
 
   // Return Tab Layout

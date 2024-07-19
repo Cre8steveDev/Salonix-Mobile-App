@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ServicesGrid from '@/components/home/ServicesGrid';
 import PopularHairstyles from '@/components/home/PopularStyles';
 import ServiceDetail from '@/components/home/ServiceDetail';
+import BookingAppointmentComp from '@/components/home/BookAppointment';
 import { Modal } from 'react-native';
 
 const Home = () => {
@@ -63,12 +64,12 @@ const Home = () => {
 
         {/* Show Modal for Booking Screen */}
         <Modal
-          animationType="slide"
-          visible={showDetailModal}
+          animationType="fade"
+          visible={showBookingModal}
           presentationStyle="overFullScreen"
-          onRequestClose={() => setShowDetailModal(false)}
+          onRequestClose={() => setShowBookingModal(false)}
         >
-          <ServiceDetail
+          <BookingAppointmentComp
             detailType={detailType}
             setShowBookingModal={setShowBookingModal}
             setShowDetailModal={setShowDetailModal}

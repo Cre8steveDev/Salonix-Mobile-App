@@ -22,3 +22,11 @@ type TAuthState = {
   auth: null | AuthToken;
   firstTimer: boolean;
 };
+
+type CalendarDayType = {
+  dateString: string;
+  day: number;
+  month: number;
+  timestamp: number;
+  year: number;
+};

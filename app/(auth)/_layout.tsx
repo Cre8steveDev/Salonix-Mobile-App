@@ -1,16 +1,18 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { Redirect, Stack } from 'expo-router';
+import { Redirect, Stack, useRouter } from 'expo-router';
 import { useSelector } from 'react-redux';
 
 const AuthLayout = () => {
-  console.log('Auth route hit');
-
   // @ts-ignore
   const auth = useSelector((state) => state.auth);
-  console.log(auth);
+  const router = useRouter();
+  // Might want to check, if the user's token expiry has
+  // not passed and auth.user is not null before going to Home
 
-  if (auth.user) return <Redirect href="/(tabs)/Home" />;
+  // Another approach for redirecting when user is already logged in
+  if (auth.user) {
+    return <Redirect href="/(tabs)/Home" />;
+  }
 
   // Only allow user access auth screen
   // if not authenticated
@@ -23,5 +25,3 @@ const AuthLayout = () => {
 };
 
 export default AuthLayout;
-
-const styles = StyleSheet.create({});

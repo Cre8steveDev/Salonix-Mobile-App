@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 20,
   },
+
   headingSubContainer: {},
   sectionContainer: {
     paddingHorizontal: 20,
@@ -180,6 +181,7 @@ const styles = StyleSheet.create({
     fontFamily: 'PoppinsExtraBold',
     color: Colors.dark.white,
   },
+
   priceText: {
     color: Colors.dark.white,
     fontFamily: 'PoppinsBold',
@@ -190,36 +192,42 @@ const styles = StyleSheet.create({
     paddingVertical: 3,
     borderRadius: 6,
   },
+
   description: {
     color: Colors.dark.white,
     marginTop: 20,
-    fontSize: 16,
+    fontSize: 15,
     lineHeight: 24,
   },
+
   button: {
     width: '100%',
     backgroundColor: Colors.dark.primaryOrange,
-    marginTop: 20,
+    marginTop: 30,
     padding: 10,
     margin: 'auto',
     borderRadius: 6,
   },
+
   buttonText: {
     fontSize: 20,
     fontFamily: 'PoppinsExtraBold',
     textAlign: 'center',
     color: Colors.dark.white,
   },
+
   refundInfo: {
     color: Colors.dark.placeholder,
     textAlign: 'center',
     marginTop: 10,
     fontSize: 12,
   },
+
   ratingText: {
     marginTop: -5,
     color: Colors.dark.white,
   },
+
   loadingContainer: {
     flex: 1,
     width: '100%',
@@ -242,5 +250,6 @@ const styles = StyleSheet.create({
     left: 10,
     top: 15,
   },
+
   closeIcons: {},
 });

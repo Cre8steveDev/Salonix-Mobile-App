@@ -15,12 +15,24 @@ const Profile = () => {
   const router = useRouter();
 
   const { user } = authState;
+
+  // Always put the redirect for the router
+  // in the useEffect so that the component
+  // error doesn't happen
+
+  useEffect(() => {
+    if (!user) {
+      router.replace('/(auth)/SignIn');
+    }
+  }, [user, router]);
+
   const handleLogOut = () => {
     dispatch(logOut());
   };
 
   if (!user) {
-    router.replace('/(auth)/SignIn');
+    // Return null or a loading indicator while redirecting
+    return null;
   }
 
   return (

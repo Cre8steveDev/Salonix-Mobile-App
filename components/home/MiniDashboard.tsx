@@ -27,6 +27,7 @@ const MiniDashboard = ({ user, auth }: MiniDashboardProp) => {
     return user.walletId.split('').slice(10).join('');
   }, []);
 
+  if (!user) return null;
   // Handle Redirect to Fund Wallet Screen
   const handleRedirect = () => {
     router.push('/(tabs)/FundWallet');
