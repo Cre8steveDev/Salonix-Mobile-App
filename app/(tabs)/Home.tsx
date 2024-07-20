@@ -27,10 +27,10 @@ const Home = () => {
   const [bookingType, setBookingType] = useState('');
   const [bookingDetails, setBookingDetails] =
     useState<ComposeBookingDetailType | null>(null);
+  const [refreshBalanceAfterSuccess, setRefreshBalanceAFterSuccess] =
+    useState(false);
 
-  if (!user) return <Redirect href="/(auth)/Login" />;
-
-  console.log('Preview Booking Details before payment:\n', bookingDetails);
+  if (!user) return <Redirect href="/(auth)/SignIn" />;
 
   // If all is well, then render the home page
   return (
@@ -47,7 +47,11 @@ const Home = () => {
         showsVerticalScrollIndicator={false}
       >
         {/* Mini Dashboard  */}
-        <MiniDashboard user={user} auth={auth!} />
+        <MiniDashboard
+          user={user}
+          auth={auth!}
+          refreshBalanceAfterSuccess={refreshBalanceAfterSuccess}
+        />
 
         {/* Our Services Grid */}
         <ServicesGrid
@@ -104,10 +108,12 @@ const Home = () => {
             transparent
           >
             <ReviewAndPayComp
+              auth={auth!}
               user={user}
               bookingDetails={bookingDetails!}
               setShowBookingModal={setShowBookingModal}
               setShowReviewAndPayModal={setShowReviewAndPayModal}
+              setRefreshBalanceAFterSuccess={setRefreshBalanceAFterSuccess}
             />
           </Modal>
         )}

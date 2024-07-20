@@ -39,6 +39,7 @@ type slotDataProp = {
 };
 
 type ComposeBookingDetailType = {
+  walletId: string;
   chosenService: string;
   price: number;
   date: string;

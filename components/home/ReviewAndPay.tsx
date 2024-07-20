@@ -1,4 +1,5 @@
 import {
+  Alert,
   FlatList,
   Pressable,
   ScrollView,
@@ -15,12 +16,17 @@ import useToast from '../Toasts';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import { useDispatch } from 'react-redux';
+import { logOut } from '@/providers/redux/authSlice';
+import { useRouter } from 'expo-router';
 
 type ReviewAndPayCompProp = {
+  auth: AuthToken;
   user: LoggedInUser;
   bookingDetails: ComposeBookingDetailType;
   setShowBookingModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowReviewAndPayModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setRefreshBalanceAFterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 /**
@@ -31,49 +37,81 @@ type ReviewAndPayCompProp = {
  */
 
 const ReviewAndPayComp = ({
+  auth,
   user,
   bookingDetails,
   setShowBookingModal,
   setShowReviewAndPayModal,
+  setRefreshBalanceAFterSuccess,
 }: ReviewAndPayCompProp) => {
   // const [loading, setLoading] = useState(false);
   const [loadingPayment, setLoadingPayment] = useState(false);
   const [balanceError, setBalanceError] = useState(false);
-  const [remoteCurrentBalance, setRemoteCurrentBalance] = useState(0);
+  const [error, setError] = useState('');
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
-  //   Get All Slots from the backend
-  // useEffect(() => {
-  //   setLoadingSlots(true);
-  //   const getAllAppointmentSlots = async () => {
-  //     try {
-  //       const response = await API.get(`api/appointments/day/${selectedDate}`);
-
-  //       const { data } = response;
-  //       if (!data.slots) throw new Error('Error fetching available slots.');
-
-  //       setAllDaySlots(data.slots.dayAppointments);
-
-  //       // Catch any error that may occur
-  //     } catch (error) {
-  //       console.log(error);
-  //       useToast('Error fetching service detail.', 'red', 'white');
-  //       setAllDaySlots([]);
-  //     }
-
-  //     setLoadingSlots(false);
-  //   };
-
-  //   // Call function
-  //   getAllAppointmentSlots();
-  // }, [selectedDate]);
+  const dispatch = useDispatch();
+  const router = useRouter();
 
   // Function for handling payment process and triggering
   // the necessary modal to show successful modal.
 
-  const handleProcessPayment = () => {
+  const handleProcessPayment = async () => {
     setLoadingPayment(true);
+    setBalanceError(false);
+
+    try {
+      // Get User's Current Balance as stored on DB.
+      // Better than relying on the frontend value.
+      const response = await API.get('api/auth/get-wallet', {
+        headers: { Authorization: `Basic ${auth.id}` },
+      });
+      // If status returns 401 Unauthorized log user out.
+      if (response.status === 401 || !response.data.wallet) {
+        // useToast('Error occured validating current balance.', 'red', 'white');
+        setBalanceError(true);
+        dispatch(logOut());
+        return router.push('/(auth)/SignIn');
+      }
+
+      const { wallet } = response.data;
+      // Update state with current balance
+
+      // Verify the current balance is greater than price
+      if (wallet.currentBalance > bookingDetails.price) {
+        // Send appointment details to the back end
+        const bookResponse = await API.post(
+          'api/appointments/book',
+          bookingDetails,
+          {
+            headers: { Authorization: `Basic ${auth.id}` },
+          }
+        );
+        // Refresh Balance after successful fixing
+        setRefreshBalanceAFterSuccess((prev) => !prev);
+        setLoadingPayment(false);
+        setRefreshBalanceAFterSuccess(true);
+        setPaymentSuccess(true);
+
+        // Prompt user about insufficient funds
+      } else {
+        Alert.alert(
+          'Insufficient Balance. 🙃',
+          'Sorry, you cannot book the current service as your balance lesser than the cost. Kindly fund your wallet.'
+        );
+        // Redirect to the fund wallet page.
+        return router.push('/(tabs)/FundWallet');
+      }
+    } catch (error) {
+      console.log(error);
+      Alert.alert(
+        'An Unknown Error occured.',
+        'Sorry, an error occured while completing your booking. Try again later.'
+      );
+      setLoadingPayment(false);
+    }
   };
+
   //   Return JSX for the component
   return (
     <Pressable style={styles.overlay}>

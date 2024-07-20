@@ -96,6 +96,7 @@ const BookingAppointmentComp = ({
       email: user.email,
       gender: user.gender,
       fullName: user.fullName,
+      walletId: user.walletId,
       chosenService: serviceKeyValue[detailType],
       price: servicePrice,
       date: selectedDate,

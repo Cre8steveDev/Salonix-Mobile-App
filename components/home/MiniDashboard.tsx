@@ -13,9 +13,14 @@ import { logOut } from '@/providers/redux/authSlice';
 type MiniDashboardProp = {
   user: LoggedInUser;
   auth: AuthToken;
+  refreshBalanceAfterSuccess: boolean;
 };
 
-const MiniDashboard = ({ user, auth }: MiniDashboardProp) => {
+const MiniDashboard = ({
+  user,
+  auth,
+  refreshBalanceAfterSuccess,
+}: MiniDashboardProp) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [currentBalance, setCurrentBalance] = useState('------');
@@ -44,7 +49,7 @@ const MiniDashboard = ({ user, auth }: MiniDashboardProp) => {
         if (response.status === 401) {
           useToast('Session has expired. Sign in again.', 'orange', 'white');
           dispatch(logOut());
-          router.push('/(auth)/Login');
+          router.push('/(auth)/SignIn');
         }
 
         const { wallet } = response.data;
@@ -59,7 +64,7 @@ const MiniDashboard = ({ user, auth }: MiniDashboardProp) => {
         dispatch(logOut());
         // useToast('Unable to load current balance.', 'red', 'white');
       });
-  }, [refreshBalance]);
+  }, [refreshBalance, refreshBalanceAfterSuccess]);
 
   // Return JSX
   return (
