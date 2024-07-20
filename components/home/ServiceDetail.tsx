@@ -21,6 +21,7 @@ type ServiceDetailCompProp = {
   setShowDetailModal: React.Dispatch<React.SetStateAction<boolean>>;
   detailType: string;
   setShowBookingModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setServicePrice: React.Dispatch<React.SetStateAction<number>>;
 };
 
 type ServiceDetail = {
@@ -36,6 +37,7 @@ const ServiceDetailComp = ({
   detailType,
   setShowDetailModal,
   setShowBookingModal,
+  setServicePrice,
 }: ServiceDetailCompProp) => {
   const [loading, setLoading] = useState(false);
   const [userRating, setUserRating] = useState({ userId: '', rating: 0 });
@@ -51,6 +53,7 @@ const ServiceDetailComp = ({
         const response = await API.get(`api/resources/services/${detailType}`);
         const { data } = response.data;
         setServiceDetail(data);
+        setServicePrice(data?.price);
       } catch (error) {
         console.log(error);
         useToast('Error fetching service detail.', 'red', 'white');
@@ -105,7 +108,8 @@ const ServiceDetailComp = ({
             borderBottomRightRadius: 35,
             overflow: 'hidden',
           }}
-          placeholder={blurhash}
+          placeholder={require('@/assets/images/home/loading_image.gif')}
+          placeholderContentFit="cover"
           contentFit="cover"
           transition={800}
           contentPosition={{ top: -20, left: 0 }}

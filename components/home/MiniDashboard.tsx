@@ -57,7 +57,7 @@ const MiniDashboard = ({ user, auth }: MiniDashboardProp) => {
         // console.log(error);
         setLoadingBalance(false);
         dispatch(logOut());
-        useToast('Unable to load current balance.', 'red', 'white');
+        // useToast('Unable to load current balance.', 'red', 'white');
       });
   }, [refreshBalance]);
 

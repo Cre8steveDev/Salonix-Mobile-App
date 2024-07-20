@@ -35,7 +35,6 @@ const SignUp = () => {
     const keyboardHideListener = Keyboard.addListener('keyboardDidHide', () => {
       setKeyboardVisible(false);
     });
-
     // Cleanup function for when the component unmounts
     return () => {
       keyboardShowListener.remove();
@@ -84,11 +83,11 @@ const SignUp = () => {
     setLoading(true);
 
     const formData = {
-      email,
-      password,
-      fullName,
-      phoneNumber,
-      gender: gender.toUpperCase(),
+      email: email.trim(),
+      password: password.trim(),
+      fullName: fullName.trim(),
+      phoneNumber: phoneNumber.trim(),
+      gender: gender.trim().toUpperCase(),
     };
 
     try {

@@ -11,6 +11,7 @@ import PopularHairstyles from '@/components/home/PopularStyles';
 import ServiceDetail from '@/components/home/ServiceDetail';
 import BookingAppointmentComp from '@/components/home/BookAppointment';
 import { Modal } from 'react-native';
+import ReviewAndPayComp from '@/components/home/ReviewAndPay';
 
 const Home = () => {
   // @ts-ignore
@@ -19,11 +20,17 @@ const Home = () => {
 
   const [showDetailModal, setShowDetailModal] = useState(false);
   const [showBookingModal, setShowBookingModal] = useState(false);
+  const [showReviewAndPayModal, setShowReviewAndPayModal] = useState(false);
 
   const [detailType, setDetailType] = useState('');
+  const [servicePrice, setServicePrice] = useState(0);
   const [bookingType, setBookingType] = useState('');
+  const [bookingDetails, setBookingDetails] =
+    useState<ComposeBookingDetailType | null>(null);
 
   if (!user) return <Redirect href="/(auth)/Login" />;
+
+  console.log('Preview Booking Details before payment:\n', bookingDetails);
 
   // If all is well, then render the home page
   return (
@@ -33,6 +40,7 @@ const Home = () => {
         style="light"
         backgroundColor={Colors.dark.primaryOrange}
       />
+
       {/* Scroll View holding Home Page content */}
       <ScrollView
         contentContainerStyle={[styles.scrollView]}
@@ -40,6 +48,7 @@ const Home = () => {
       >
         {/* Mini Dashboard  */}
         <MiniDashboard user={user} auth={auth!} />
+
         {/* Our Services Grid */}
         <ServicesGrid
           setShowDetailModal={setShowDetailModal}
@@ -48,33 +57,60 @@ const Home = () => {
         {/* Popular Hairstyles */}
         <PopularHairstyles />
         {/*  */}
+
         {/* Show Detail Modal Here */}
-        <Modal
-          animationType="slide"
-          visible={showDetailModal}
-          presentationStyle="overFullScreen"
-          onRequestClose={() => setShowDetailModal(false)}
-        >
-          <ServiceDetail
-            detailType={detailType}
-            setShowBookingModal={setShowBookingModal}
-            setShowDetailModal={setShowDetailModal}
-          />
-        </Modal>
+        {showDetailModal && (
+          <Modal
+            animationType="slide"
+            visible={showDetailModal}
+            presentationStyle="overFullScreen"
+            onRequestClose={() => setShowDetailModal(false)}
+          >
+            <ServiceDetail
+              detailType={detailType}
+              setServicePrice={setServicePrice}
+              setShowBookingModal={setShowBookingModal}
+              setShowDetailModal={setShowDetailModal}
+            />
+          </Modal>
+        )}
 
         {/* Show Modal for Booking Screen */}
-        <Modal
-          animationType="fade"
-          visible={showBookingModal}
-          presentationStyle="overFullScreen"
-          onRequestClose={() => setShowBookingModal(false)}
-        >
-          <BookingAppointmentComp
-            detailType={detailType}
-            setShowBookingModal={setShowBookingModal}
-            setShowDetailModal={setShowDetailModal}
-          />
-        </Modal>
+        {showBookingModal && (
+          <Modal
+            animationType="fade"
+            visible={showBookingModal}
+            presentationStyle="overFullScreen"
+            onRequestClose={() => setShowBookingModal(false)}
+          >
+            <BookingAppointmentComp
+              user={user}
+              detailType={detailType}
+              servicePrice={servicePrice}
+              setShowBookingModal={setShowBookingModal}
+              setBookingDetails={setBookingDetails}
+              setShowReviewAndPayModal={setShowReviewAndPayModal}
+            />
+          </Modal>
+        )}
+
+        {/* Review and Payment Modal */}
+        {showReviewAndPayModal && (
+          <Modal
+            animationType="fade"
+            visible={showReviewAndPayModal}
+            presentationStyle="overFullScreen"
+            onRequestClose={() => setShowBookingModal(false)}
+            transparent
+          >
+            <ReviewAndPayComp
+              user={user}
+              bookingDetails={bookingDetails!}
+              setShowBookingModal={setShowBookingModal}
+              setShowReviewAndPayModal={setShowReviewAndPayModal}
+            />
+          </Modal>
+        )}
         {/* End of Definitions */}
       </ScrollView>
     </SafeAreaView>

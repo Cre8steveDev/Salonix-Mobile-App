@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   Alert,
   ImageBackground,
   ScrollView,
@@ -75,6 +76,25 @@ const SignIn = () => {
       setLoading(false);
     }
   };
+
+  // Return a loader for when the component is loading or something
+  if (loading) {
+    return (
+      <ImageBackground
+        source={require('../../assets/images/onboarding/signup.png')}
+        style={styles.container}
+        imageStyle={styles.imageBg}
+        resizeMode="cover"
+        blurRadius={0}
+        borderRadius={0}
+        fadeDuration={300}
+      >
+        <StatusBar />
+        <ActivityIndicator size={50} color={Colors.dark.primaryOrange} />
+        <Text style={{ color: 'white', fontSize: 18 }}>Loading... 😊</Text>
+      </ImageBackground>
+    );
+  }
 
   return (
     <ImageBackground

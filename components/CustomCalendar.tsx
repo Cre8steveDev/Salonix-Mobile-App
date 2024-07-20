@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React, { useMemo } from 'react';
 import Colors from '@/constants/Colors';
 import { Calendar } from 'react-native-calendars';
@@ -6,11 +6,17 @@ import { Calendar } from 'react-native-calendars';
 type CustomCalendarProp = {
   selectedDate: string;
   setSelectedDate: React.Dispatch<React.SetStateAction<string>>;
+  parentLoadingState?: boolean;
 };
 
+/**
+ * CustomCalendar - Remember to pass in the selected date as
+ * YYYY-MM-DD as that's how it is also returned in setSelected Date
+ */
 const CustomCalendar = ({
   selectedDate,
   setSelectedDate,
+  parentLoadingState,
 }: CustomCalendarProp) => {
   // Calculate today's date for the minimum selectable day
   const currentDateString = new Date().toISOString().split('T')[0];
@@ -30,7 +36,7 @@ const CustomCalendar = ({
   return (
     <Calendar
       style={{
-        height: 310,
+        height: 350,
         padding: 10,
         // This was a hack for current specific use case
         marginTop: -10,
@@ -62,8 +68,12 @@ const CustomCalendar = ({
         state: any;
       }) => {
         return (
-          <Pressable
-            onPress={() => setSelectedDate(date.dateString)}
+          <TouchableOpacity
+            onPress={() => {
+              if (state === 'disabled') return;
+              if (parentLoadingState) return;
+              setSelectedDate(date.dateString);
+            }}
             style={[
               state !== 'disabled'
                 ? activeDay === date.day
@@ -84,7 +94,7 @@ const CustomCalendar = ({
             >
               {date.day}
             </Text>
-          </Pressable>
+          </TouchableOpacity>
         );
       }}
       markedDates={{

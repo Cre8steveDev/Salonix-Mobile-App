@@ -30,3 +30,21 @@ type CalendarDayType = {
   timestamp: number;
   year: number;
 };
+
+type slotDataProp = {
+  id: number;
+  isBooked: boolean;
+  startTime: string;
+  endTime: string;
+};
+
+type ComposeBookingDetailType = {
+  chosenService: string;
+  price: number;
+  date: string;
+  startTime: string;
+  endTime: string;
+  email: string;
+  fullName: string;
+  gender: string;
+};

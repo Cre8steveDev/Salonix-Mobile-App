@@ -139,7 +139,9 @@ export const StyleCard = ({
         backgroundColor: Colors.dark.primaryOrange,
         borderRadius: 10,
       }}
-      placeholder={blurhash}
+      // placeholder={blurhash}
+      placeholder={require('@/assets/images/home/loading_image.gif')}
+      placeholderContentFit="cover"
       contentFit="cover"
       transition={800}
       contentPosition={{ top: 0, left: 0 }}

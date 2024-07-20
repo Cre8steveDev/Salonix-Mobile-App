@@ -1,6 +1,12 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '@/providers/redux/authSlice';
 import { StatusBar } from 'expo-status-bar';
@@ -11,6 +17,7 @@ const Profile = () => {
   // Handle Signout Dispatch
   //@ts-ignore
   const authState = useSelector((state) => state.auth as TAuthState);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -20,19 +27,14 @@ const Profile = () => {
   // in the useEffect so that the component
   // error doesn't happen
 
-  useEffect(() => {
-    if (!user) {
-      router.replace('/(auth)/SignIn');
-    }
-  }, [user, router]);
-
-  const handleLogOut = () => {
+  const handleLogOut = async () => {
+    setIsLoading(true);
     dispatch(logOut());
+    router.replace('/(auth)/SignIn');
   };
 
-  if (!user) {
-    // Return null or a loading indicator while redirecting
-    return null;
+  if (isLoading || !user) {
+    return <ActivityIndicator />;
   }
 
   return (
