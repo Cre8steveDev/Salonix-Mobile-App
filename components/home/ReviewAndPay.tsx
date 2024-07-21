@@ -1,6 +1,5 @@
 import {
   Alert,
-  FlatList,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -12,9 +11,7 @@ import { ActivityIndicator } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import Colors from '@/constants/Colors';
 import API from '@/constants/API';
-import useToast from '../Toasts';
 import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import { useDispatch } from 'react-redux';
 import { logOut } from '@/providers/redux/authSlice';
@@ -24,9 +21,11 @@ type ReviewAndPayCompProp = {
   auth: AuthToken;
   user: LoggedInUser;
   bookingDetails: ComposeBookingDetailType;
+  setShowDetailModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowBookingModal: React.Dispatch<React.SetStateAction<boolean>>;
   setShowReviewAndPayModal: React.Dispatch<React.SetStateAction<boolean>>;
   setRefreshBalanceAFterSuccess: React.Dispatch<React.SetStateAction<boolean>>;
+  setPaymentSuccessModal: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 /**
@@ -40,22 +39,22 @@ const ReviewAndPayComp = ({
   auth,
   user,
   bookingDetails,
+  setShowDetailModal,
   setShowBookingModal,
   setShowReviewAndPayModal,
   setRefreshBalanceAFterSuccess,
+  setPaymentSuccessModal,
 }: ReviewAndPayCompProp) => {
   // const [loading, setLoading] = useState(false);
   const [loadingPayment, setLoadingPayment] = useState(false);
   const [balanceError, setBalanceError] = useState(false);
   const [error, setError] = useState('');
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const dispatch = useDispatch();
   const router = useRouter();
 
   // Function for handling payment process and triggering
   // the necessary modal to show successful modal.
-
   const handleProcessPayment = async () => {
     setLoadingPayment(true);
     setBalanceError(false);
@@ -87,23 +86,35 @@ const ReviewAndPayComp = ({
             headers: { Authorization: `Basic ${auth.id}` },
           }
         );
+
         // Refresh Balance after successful fixing
-        setRefreshBalanceAFterSuccess((prev) => !prev);
-        setLoadingPayment(false);
-        setRefreshBalanceAFterSuccess(true);
-        setPaymentSuccess(true);
+        if (bookResponse.data.success) {
+          setRefreshBalanceAFterSuccess(true);
+          setLoadingPayment(false);
+          setRefreshBalanceAFterSuccess(true);
+          setPaymentSuccessModal(true);
+          return;
+        }
+        // If for some reason the process didn't complete
+        throw new Error();
 
         // Prompt user about insufficient funds
       } else {
+        // Close the current modals.
+        setShowReviewAndPayModal(false);
+        setShowBookingModal(false);
+        setShowDetailModal(false);
+
         Alert.alert(
           'Insufficient Balance. 🙃',
           'Sorry, you cannot book the current service as your balance lesser than the cost. Kindly fund your wallet.'
         );
+
         // Redirect to the fund wallet page.
         return router.push('/(tabs)/FundWallet');
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       Alert.alert(
         'An Unknown Error occured.',
         'Sorry, an error occured while completing your booking. Try again later.'
@@ -121,7 +132,9 @@ const ReviewAndPayComp = ({
         {loadingPayment && (
           <View style={styles.processingPaymentContainer}>
             <ActivityIndicator size={60} color={Colors.dark.primaryOrange} />
-            <Text style={styles.processingPaymentText}>Processing...</Text>
+            <Text style={styles.processingPaymentText}>
+              Processing payment...
+            </Text>
           </View>
         )}
 
@@ -218,7 +231,7 @@ const styles = StyleSheet.create({
   processingPaymentText: {
     textAlign: 'center',
     fontFamily: 'PoppinsBold',
-    fontSize: 24,
+    fontSize: 16,
     color: Colors.dark.placeholder,
     marginTop: 10,
   },

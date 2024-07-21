@@ -12,6 +12,7 @@ import ServiceDetail from '@/components/home/ServiceDetail';
 import BookingAppointmentComp from '@/components/home/BookAppointment';
 import { Modal } from 'react-native';
 import ReviewAndPayComp from '@/components/home/ReviewAndPay';
+import PaymentSuccessModalComp from '@/components/home/PaymentSuccessModal';
 
 const Home = () => {
   // @ts-ignore
@@ -29,7 +30,9 @@ const Home = () => {
     useState<ComposeBookingDetailType | null>(null);
   const [refreshBalanceAfterSuccess, setRefreshBalanceAFterSuccess] =
     useState(false);
+  const [paymentSuccessModal, setPaymentSuccessModal] = useState(false);
 
+  // Redirect if user is not signed in
   if (!user) return <Redirect href="/(auth)/SignIn" />;
 
   // If all is well, then render the home page
@@ -104,16 +107,37 @@ const Home = () => {
             animationType="fade"
             visible={showReviewAndPayModal}
             presentationStyle="overFullScreen"
-            onRequestClose={() => setShowBookingModal(false)}
+            onRequestClose={() => setShowReviewAndPayModal(false)}
             transparent
           >
             <ReviewAndPayComp
               auth={auth!}
               user={user}
               bookingDetails={bookingDetails!}
+              setShowDetailModal={setShowDetailModal}
               setShowBookingModal={setShowBookingModal}
               setShowReviewAndPayModal={setShowReviewAndPayModal}
               setRefreshBalanceAFterSuccess={setRefreshBalanceAFterSuccess}
+              setPaymentSuccessModal={setPaymentSuccessModal}
+            />
+          </Modal>
+        )}
+
+        {/* Payment Success Modal */}
+        {paymentSuccessModal && (
+          <Modal
+            animationType="fade"
+            visible={paymentSuccessModal}
+            presentationStyle="overFullScreen"
+            onRequestClose={() => setShowBookingModal(false)}
+            transparent
+          >
+            <PaymentSuccessModalComp
+              bookingDetails={bookingDetails!}
+              setShowDetailModal={setShowDetailModal}
+              setShowBookingModal={setShowBookingModal}
+              setShowReviewAndPayModal={setShowReviewAndPayModal}
+              setPaymentSuccessModal={setPaymentSuccessModal}
             />
           </Modal>
         )}

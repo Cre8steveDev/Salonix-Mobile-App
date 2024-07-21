@@ -92,6 +92,12 @@ const BookingAppointmentComp = ({
 
   // Handle Confirmation and Payment
   const collateBookingDetails = () => {
+    if (!selectedTimeSlot) {
+      Alert.alert('Missing Time Slot', 'Please select an available time slot.');
+      return;
+    }
+
+    // If time slot has been chosen, then collate details
     const bookingDetails: ComposeBookingDetailType = {
       email: user.email,
       gender: user.gender,
