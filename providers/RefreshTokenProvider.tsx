@@ -1,7 +1,6 @@
-import { ReactNode, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import API from '@/constants/API';
-import { View } from 'react-native';
 import { logOut, refreshTokenSuccess } from './redux/authSlice';
 import useToast from '@/components/Toasts';
 
