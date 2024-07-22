@@ -16,7 +16,13 @@ export const authSlice = createSlice({
       if (state.firstTimer) {
         state.firstTimer = false;
       }
+      console.log(state.auth);
     },
+
+    refreshTokenSuccess: (state, action) => {
+      state.auth = action.payload;
+    },
+
     logOut: (state) => {
       state.user = null;
       state.auth = null;
@@ -24,6 +30,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const { loginSuccess, logOut } = authSlice.actions;
+export const { loginSuccess, refreshTokenSuccess, logOut } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -78,7 +78,6 @@ const BookingAppointmentComp = ({
 
         // Catch any error that may occur
       } catch (error) {
-        console.log(error);
         useToast('Error fetching service detail.', 'red', 'white');
         setAllDaySlots([]);
       }

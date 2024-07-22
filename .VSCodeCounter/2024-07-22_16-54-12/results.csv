@@ -1,0 +1,54 @@
+"filename", "language", "JavaScript", "JSON with Comments", "Markdown", "TypeScript JSX", "TypeScript", "JSON", "comment", "blank", "total"
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/README.md", "Markdown", 0, 0, 22, 0, 0, 0, 0, 15, 37
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app.json", "JSON with Comments", 0, 34, 0, 0, 0, 0, 0, 1, 35
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(auth)/SignIn.tsx", "TypeScript JSX", 0, 0, 0, 226, 0, 0, 23, 24, 273
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(auth)/SignUp.tsx", "TypeScript JSX", 0, 0, 0, 248, 0, 0, 30, 28, 306
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(auth)/_layout.tsx", "TypeScript JSX", 0, 0, 0, 17, 0, 0, 6, 5, 28
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/FundWallet.tsx", "TypeScript JSX", 0, 0, 0, 169, 0, 0, 20, 25, 214
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/Home.tsx", "TypeScript JSX", 0, 0, 0, 132, 0, 0, 13, 13, 158
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/Popular.tsx", "TypeScript JSX", 0, 0, 0, 218, 0, 0, 8, 20, 246
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/Profile.tsx", "TypeScript JSX", 0, 0, 0, 238, 0, 0, 14, 22, 274
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/_layout.tsx", "TypeScript JSX", 0, 0, 0, 91, 0, 0, 9, 7, 107
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/+html.tsx", "TypeScript JSX", 0, 0, 0, 24, 0, 0, 10, 5, 39
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/+not-found.tsx", "TypeScript JSX", 0, 0, 0, 36, 0, 0, 0, 5, 41
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/_layout.tsx", "TypeScript JSX", 0, 0, 0, 55, 0, 0, 7, 14, 76
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/index.tsx", "TypeScript JSX", 0, 0, 0, 41, 0, 0, 4, 9, 54
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/modal.tsx", "TypeScript JSX", 0, 0, 0, 11, 0, 0, 0, 4, 15
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/babel.config.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 1, 8
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/AnimatedImgBackground.tsx", "TypeScript JSX", 0, 0, 0, 4, 0, 0, 0, 3, 7
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/CustomCalendar.tsx", "TypeScript JSX", 0, 0, 0, 116, 0, 0, 13, 8, 137
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/Onboarding.tsx", "TypeScript JSX", 0, 0, 0, 23, 0, 0, 0, 5, 28
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/PaystackComponent.tsx", "TypeScript JSX", 0, 0, 0, 66, 0, 0, 3, 9, 78
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/SkeletonLoader.tsx", "TypeScript JSX", 0, 0, 0, 54, 0, 0, 1, 7, 62
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/StyleCard.tsx", "TypeScript JSX", 0, 0, 0, 36, 0, 0, 2, 3, 41
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/TextButton.tsx", "TypeScript JSX", 0, 0, 0, 41, 0, 0, 0, 3, 44
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/Toasts.tsx", "TypeScript JSX", 0, 0, 0, 27, 0, 0, 21, 5, 53
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/booking/SlotCard.tsx", "TypeScript JSX", 0, 0, 0, 108, 0, 0, 4, 7, 119
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/form/CustomPasswordInput.tsx", "TypeScript JSX", 0, 0, 0, 83, 0, 0, 0, 5, 88
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/form/CustomSubmitBtn.tsx", "TypeScript JSX", 0, 0, 0, 55, 0, 0, 1, 5, 61
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/form/CustomTextInput.tsx", "TypeScript JSX", 0, 0, 0, 72, 0, 0, 1, 5, 78
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/BookAppointment.tsx", "TypeScript JSX", 0, 0, 0, 266, 0, 0, 14, 32, 312
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/MiniDashboard.tsx", "TypeScript JSX", 0, 0, 0, 155, 0, 0, 12, 16, 183
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/PaymentSuccessModal.tsx", "TypeScript JSX", 0, 0, 0, 335, 0, 0, 27, 39, 401
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/PopularStyles.tsx", "TypeScript JSX", 0, 0, 0, 141, 0, 0, 9, 13, 163
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/ReviewAndPay.tsx", "TypeScript JSX", 0, 0, 0, 254, 0, 0, 30, 30, 314
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/ServiceDetail.tsx", "TypeScript JSX", 0, 0, 0, 223, 0, 0, 13, 27, 263
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/ServicesGrid.tsx", "TypeScript JSX", 0, 0, 0, 97, 0, 0, 5, 10, 112
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/onboarding/ScreenOne.tsx", "TypeScript JSX", 0, 0, 0, 74, 0, 0, 4, 7, 85
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/onboarding/ScreenThree.tsx", "TypeScript JSX", 0, 0, 0, 113, 0, 0, 9, 10, 132
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/onboarding/ScreenTwo.tsx", "TypeScript JSX", 0, 0, 0, 108, 0, 0, 9, 10, 127
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/profile/AppointmentHistory.tsx", "TypeScript JSX", 0, 0, 0, 195, 0, 0, 11, 15, 221
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/API.ts", "TypeScript", 0, 0, 0, 0, 3, 0, 0, 3, 6
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/BlurHash.ts", "TypeScript", 0, 0, 0, 0, 3, 0, 0, 2, 5
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/Colors.ts", "TypeScript", 0, 0, 0, 0, 19, 0, 11, 4, 34
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/Services.ts", "TypeScript", 0, 0, 0, 0, 23, 0, 0, 2, 25
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/hooks/useGlobalState.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/metro.config.js", "JavaScript", 12, 0, 0, 0, 0, 0, 0, 3, 15
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/package-lock.json", "JSON", 0, 0, 0, 0, 0, 18872, 0, 1, 18873
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/package.json", "JSON", 0, 0, 0, 0, 0, 56, 0, 1, 57
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/providers/redux/appStateSlice.ts", "TypeScript", 0, 0, 0, 0, 19, 0, 1, 5, 25
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/providers/redux/authSlice.ts", "TypeScript", 0, 0, 0, 0, 25, 0, 0, 5, 30
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/providers/redux/store.ts", "TypeScript", 0, 0, 0, 0, 34, 0, 4, 9, 47
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/tsconfig.json", "JSON with Comments", 0, 17, 0, 0, 0, 0, 0, 1, 18
+"/home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/types/global.d.ts", "TypeScript", 0, 0, 0, 0, 56, 0, 0, 8, 64
+"Total", "-", 19, 51, 22, 4152, 182, 18928, 349, 517, 24220

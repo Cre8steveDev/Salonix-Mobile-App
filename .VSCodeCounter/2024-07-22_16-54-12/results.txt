@@ -1,0 +1,98 @@
+Date : 2024-07-22 16:54:12
+Directory : /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app
+Total : 52 files,  23354 codes, 349 comments, 517 blanks, all 24220 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          2 |     18,928 |          0 |          2 |     18,930 |
+| TypeScript JSX     |         36 |      4,152 |        333 |        455 |      4,940 |
+| TypeScript         |          9 |        182 |         16 |         39 |        237 |
+| JSON with Comments |          2 |         51 |          0 |          2 |         53 |
+| Markdown           |          1 |         22 |          0 |         15 |         37 |
+| JavaScript         |          2 |         19 |          0 |          4 |         23 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                                      | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                                         |         52 |     23,354 |        349 |        517 |     24,220 |
+| . (Files)                                                                                                                                 |          7 |     19,020 |          0 |         23 |     19,043 |
+| app                                                                                                                                       |         13 |      1,506 |        144 |        181 |      1,831 |
+| app (Files)                                                                                                                               |          5 |        167 |         21 |         37 |        225 |
+| app/(auth)                                                                                                                                |          3 |        491 |         59 |         57 |        607 |
+| app/(tabs)                                                                                                                                |          5 |        848 |         64 |         87 |        999 |
+| components                                                                                                                                |         23 |      2,646 |        189 |        274 |      3,109 |
+| components (Files)                                                                                                                        |          8 |        367 |         40 |         43 |        450 |
+| components/booking                                                                                                                        |          1 |        108 |          4 |          7 |        119 |
+| components/form                                                                                                                           |          3 |        210 |          2 |         15 |        227 |
+| components/home                                                                                                                           |          7 |      1,471 |        110 |        167 |      1,748 |
+| components/onboarding                                                                                                                     |          3 |        295 |         22 |         27 |        344 |
+| components/profile                                                                                                                        |          1 |        195 |         11 |         15 |        221 |
+| constants                                                                                                                                 |          4 |         48 |         11 |         11 |         70 |
+| hooks                                                                                                                                     |          1 |          0 |          0 |          1 |          1 |
+| providers                                                                                                                                 |          3 |         78 |          5 |         19 |        102 |
+| providers/redux                                                                                                                           |          3 |         78 |          5 |         19 |        102 |
+| types                                                                                                                                     |          1 |         56 |          0 |          8 |         64 |
++-------------------------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                                                  | language           | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/README.md                                 | Markdown           |         22 |          0 |         15 |         37 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app.json                                  | JSON with Comments |         34 |          0 |          1 |         35 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(auth)/SignIn.tsx                     | TypeScript JSX     |        226 |         23 |         24 |        273 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(auth)/SignUp.tsx                     | TypeScript JSX     |        248 |         30 |         28 |        306 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(auth)/_layout.tsx                    | TypeScript JSX     |         17 |          6 |          5 |         28 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/FundWallet.tsx                 | TypeScript JSX     |        169 |         20 |         25 |        214 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/Home.tsx                       | TypeScript JSX     |        132 |         13 |         13 |        158 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/Popular.tsx                    | TypeScript JSX     |        218 |          8 |         20 |        246 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/Profile.tsx                    | TypeScript JSX     |        238 |         14 |         22 |        274 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/(tabs)/_layout.tsx                    | TypeScript JSX     |         91 |          9 |          7 |        107 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/+html.tsx                             | TypeScript JSX     |         24 |         10 |          5 |         39 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/+not-found.tsx                        | TypeScript JSX     |         36 |          0 |          5 |         41 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/_layout.tsx                           | TypeScript JSX     |         55 |          7 |         14 |         76 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/index.tsx                             | TypeScript JSX     |         41 |          4 |          9 |         54 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/app/modal.tsx                             | TypeScript JSX     |         11 |          0 |          4 |         15 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/babel.config.js                           | JavaScript         |          7 |          0 |          1 |          8 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/AnimatedImgBackground.tsx      | TypeScript JSX     |          4 |          0 |          3 |          7 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/CustomCalendar.tsx             | TypeScript JSX     |        116 |         13 |          8 |        137 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/Onboarding.tsx                 | TypeScript JSX     |         23 |          0 |          5 |         28 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/PaystackComponent.tsx          | TypeScript JSX     |         66 |          3 |          9 |         78 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/SkeletonLoader.tsx             | TypeScript JSX     |         54 |          1 |          7 |         62 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/StyleCard.tsx                  | TypeScript JSX     |         36 |          2 |          3 |         41 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/TextButton.tsx                 | TypeScript JSX     |         41 |          0 |          3 |         44 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/Toasts.tsx                     | TypeScript JSX     |         27 |         21 |          5 |         53 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/booking/SlotCard.tsx           | TypeScript JSX     |        108 |          4 |          7 |        119 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/form/CustomPasswordInput.tsx   | TypeScript JSX     |         83 |          0 |          5 |         88 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/form/CustomSubmitBtn.tsx       | TypeScript JSX     |         55 |          1 |          5 |         61 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/form/CustomTextInput.tsx       | TypeScript JSX     |         72 |          1 |          5 |         78 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/BookAppointment.tsx       | TypeScript JSX     |        266 |         14 |         32 |        312 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/MiniDashboard.tsx         | TypeScript JSX     |        155 |         12 |         16 |        183 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/PaymentSuccessModal.tsx   | TypeScript JSX     |        335 |         27 |         39 |        401 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/PopularStyles.tsx         | TypeScript JSX     |        141 |          9 |         13 |        163 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/ReviewAndPay.tsx          | TypeScript JSX     |        254 |         30 |         30 |        314 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/ServiceDetail.tsx         | TypeScript JSX     |        223 |         13 |         27 |        263 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/home/ServicesGrid.tsx          | TypeScript JSX     |         97 |          5 |         10 |        112 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/onboarding/ScreenOne.tsx       | TypeScript JSX     |         74 |          4 |          7 |         85 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/onboarding/ScreenThree.tsx     | TypeScript JSX     |        113 |          9 |         10 |        132 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/onboarding/ScreenTwo.tsx       | TypeScript JSX     |        108 |          9 |         10 |        127 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/components/profile/AppointmentHistory.tsx | TypeScript JSX     |        195 |         11 |         15 |        221 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/API.ts                          | TypeScript         |          3 |          0 |          3 |          6 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/BlurHash.ts                     | TypeScript         |          3 |          0 |          2 |          5 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/Colors.ts                       | TypeScript         |         19 |         11 |          4 |         34 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/constants/Services.ts                     | TypeScript         |         23 |          0 |          2 |         25 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/hooks/useGlobalState.ts                   | TypeScript         |          0 |          0 |          1 |          1 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/metro.config.js                           | JavaScript         |         12 |          0 |          3 |         15 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/package-lock.json                         | JSON               |     18,872 |          0 |          1 |     18,873 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/package.json                              | JSON               |         56 |          0 |          1 |         57 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/providers/redux/appStateSlice.ts          | TypeScript         |         19 |          1 |          5 |         25 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/providers/redux/authSlice.ts              | TypeScript         |         25 |          0 |          5 |         30 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/providers/redux/store.ts                  | TypeScript         |         34 |          4 |          9 |         47 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/tsconfig.json                             | JSON with Comments |         17 |          0 |          1 |         18 |
+| /home/cre8steve-dev/Desktop/Mobile_Development/React_Native-Expo/_A_PRACTICE/salonix-mobile-app/types/global.d.ts                         | TypeScript         |         56 |          0 |          8 |         64 |
+| Total                                                                                                                                     |                    |     23,354 |        349 |        517 |     24,220 |
++-------------------------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

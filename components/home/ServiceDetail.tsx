@@ -55,7 +55,6 @@ const ServiceDetailComp = ({
         setServiceDetail(data);
         setServicePrice(data?.price);
       } catch (error) {
-        console.log(error);
         useToast('Error fetching service detail.', 'red', 'white');
         setShowDetailModal(false);
       }

@@ -24,7 +24,7 @@ const CustomCalendar = ({
   // Compute day to highlight selected day on calendar
   const colorSelected = (selected: string) => {
     let day = selected.split('-')[2];
-    console.log(day);
+
     if (day[0] === '0') {
       day = day[1];
     }

@@ -1,6 +1,6 @@
 import { Button, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useRouter } from 'expo-router';
+import { Redirect, useRouter } from 'expo-router';
 import Colors from '@/constants/Colors';
 import CustomSubmitBtn from '../form/CustomSubmitBtn';
 import API from '@/constants/API';
@@ -32,7 +32,12 @@ const MiniDashboard = ({
     return user.walletId.split('').slice(10).join('');
   }, []);
 
-  if (!user) return null;
+  useEffect(() => {
+    if (!user || !auth) {
+      <Redirect href="/(auth)/SignIn" />;
+    }
+  }, []);
+
   // Handle Redirect to Fund Wallet Screen
   const handleRedirect = () => {
     router.push('/(tabs)/FundWallet');
@@ -40,12 +45,14 @@ const MiniDashboard = ({
 
   // Get Wallet Balance
   useEffect(() => {
+    console.log('Auth in MIniDashBoard', auth);
+    if (!auth) return;
     // Get current time to prevent attempting to check balance
     // when token is expired
     const currentTime = new Date().getTime();
     if (currentTime > auth.tokenExpiry) {
       dispatch(logOut());
-      router.push('/(auth)/SignIn');
+      return;
     }
 
     setLoadingBalance(true);
@@ -67,7 +74,6 @@ const MiniDashboard = ({
         setLoadingBalance(false);
       })
       .catch((error) => {
-        // console.log(error);
         setLoadingBalance(false);
         useToast('Unable to load current balance.', 'red', 'white');
         setCurrentBalance('..........');

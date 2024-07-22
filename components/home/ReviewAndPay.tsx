@@ -48,7 +48,6 @@ const ReviewAndPayComp = ({
   // const [loading, setLoading] = useState(false);
   const [loadingPayment, setLoadingPayment] = useState(false);
   const [balanceError, setBalanceError] = useState(false);
-  const [error, setError] = useState('');
 
   const dispatch = useDispatch();
   const router = useRouter();
@@ -114,7 +113,6 @@ const ReviewAndPayComp = ({
         return router.push('/(tabs)/FundWallet');
       }
     } catch (error) {
-      // console.log(error);
       Alert.alert(
         'An Unknown Error occured.',
         'Sorry, an error occured while completing your booking. Try again later.'

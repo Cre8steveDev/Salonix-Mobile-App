@@ -19,6 +19,7 @@ type CustomTextInputProp = {
   returnType?: ReturnKeyTypeOptions;
   extraStyles?: any;
   containerStyle?: any;
+  editable?: boolean;
 };
 
 const CustomTextInput = ({
@@ -31,6 +32,7 @@ const CustomTextInput = ({
   returnType = 'next',
   extraStyles,
   containerStyle,
+  editable = true,
 }: CustomTextInputProp) => {
   return (
     <View style={containerStyle && containerStyle}>
@@ -55,6 +57,7 @@ const CustomTextInput = ({
         // textContentType="none" // iOS-specific
         autoCapitalize="none"
         autoCorrect={false}
+        editable={editable}
       />
     </View>
   );

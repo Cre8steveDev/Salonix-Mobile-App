@@ -13,6 +13,7 @@ import { store, persistor } from '@/providers/redux/store';
 
 // Import toast Provider
 import { RootSiblingParent } from 'react-native-root-siblings';
+import RefreshTokenProvider from '@/providers/RefreshTokenProvider';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -62,12 +63,14 @@ function RootLayoutNav() {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <RootSiblingParent>
-          <Stack>
-            <Stack.Screen name="index" options={{ headerShown: false }} />
-            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-          </Stack>
+          <RefreshTokenProvider>
+            <Stack>
+              <Stack.Screen name="index" options={{ headerShown: false }} />
+              <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+            </Stack>
+          </RefreshTokenProvider>
         </RootSiblingParent>
       </PersistGate>
     </Provider>

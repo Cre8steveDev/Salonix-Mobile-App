@@ -24,6 +24,7 @@ const AppointmentHistoryComp = ({
   auth,
   setShowAppointmentHistoryModal,
 }: AppointmentHistoryProp) => {
+  // Define Local State
   const [loading, setLoading] = useState(false);
   const [allAppointments, setAllAppointments] = useState<
     BookedAppointmentCardData[] | null
@@ -41,7 +42,6 @@ const AppointmentHistoryComp = ({
         const appointmentsData = response?.data
           ?.appointments as BookedAppointmentCardData[];
 
-        console.log(response.data);
         //   Update state with the data
         const sorted = appointmentsData?.sort((a, b) =>
           a.date > b.date ? 1 : -1
@@ -49,7 +49,6 @@ const AppointmentHistoryComp = ({
         setAllAppointments(sorted);
         setLoading(false);
       } catch (error) {
-        console.log(error);
         Alert.alert(
           'Error Retrieving Booked Appointments.',
           "We're unable to load your appointments at the time, please try again later."
