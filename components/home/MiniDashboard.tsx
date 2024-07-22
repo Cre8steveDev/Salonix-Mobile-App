@@ -40,6 +40,14 @@ const MiniDashboard = ({
 
   // Get Wallet Balance
   useEffect(() => {
+    // Get current time to prevent attempting to check balance
+    // when token is expired
+    const currentTime = new Date().getTime();
+    if (currentTime > auth.tokenExpiry) {
+      dispatch(logOut());
+      router.push('/(auth)/SignIn');
+    }
+
     setLoadingBalance(true);
     API.get('api/auth/get-wallet', {
       headers: { Authorization: `Basic ${auth.id}` },
@@ -61,8 +69,8 @@ const MiniDashboard = ({
       .catch((error) => {
         // console.log(error);
         setLoadingBalance(false);
-        dispatch(logOut());
-        // useToast('Unable to load current balance.', 'red', 'white');
+        useToast('Unable to load current balance.', 'red', 'white');
+        setCurrentBalance('..........');
       });
   }, [refreshBalance, refreshBalanceAfterSuccess]);
 
@@ -141,6 +149,7 @@ const styles = StyleSheet.create({
   topText: {
     fontSize: 18,
     fontFamily: 'PoppinsBold',
+    color: 'white',
   },
   heading: {
     fontSize: 60,

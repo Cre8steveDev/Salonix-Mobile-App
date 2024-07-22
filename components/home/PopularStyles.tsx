@@ -14,6 +14,7 @@ import useToast from '../Toasts';
 import SkeletonLoader from '../SkeletonLoader';
 import { Image } from 'expo-image';
 import blurhash from '@/constants/BlurHash';
+import StyleCard from '../StyleCard';
 
 type HairStyleType = {
   image: string;
@@ -36,7 +37,7 @@ const PopularHairstyles = () => {
     const fetchPopularStyles = async () => {
       try {
         const response = await API.get('api/resources/popular');
-        setHairStyles(response.data.data);
+        setHairStyles(response.data.data.slice(0, 3));
       } catch (error) {
         useToast('Error Loading Styles. E go work later.');
         setHairStyles([]);
@@ -118,41 +119,7 @@ export const EmptyList = () => {
   );
 };
 
-// Style Card Component
-export const StyleCard = ({
-  image,
-  name,
-  width,
-  height,
-}: {
-  name: string;
-  image: string;
-  width: number;
-  height: number;
-}) => {
-  return (
-    <Image
-      source={{ uri: image }}
-      style={{
-        width,
-        height,
-        backgroundColor: Colors.dark.primaryOrange,
-        borderRadius: 10,
-      }}
-      // placeholder={blurhash}
-      placeholder={require('@/assets/images/home/loading_image.gif')}
-      placeholderContentFit="cover"
-      contentFit="cover"
-      transition={800}
-      contentPosition={{ top: 0, left: 0 }}
-      alt={name}
-      cachePolicy="memory"
-      recyclingKey={image}
-      accessible={true}
-    />
-  );
-};
-
+// CSS Styles
 const styles = StyleSheet.create({
   firstContainer: {
     position: 'relative',

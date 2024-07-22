@@ -26,6 +26,7 @@ const Home = () => {
   const [detailType, setDetailType] = useState('');
   const [servicePrice, setServicePrice] = useState(0);
   const [bookingType, setBookingType] = useState('');
+
   const [bookingDetails, setBookingDetails] =
     useState<ComposeBookingDetailType | null>(null);
   const [refreshBalanceAfterSuccess, setRefreshBalanceAFterSuccess] =
@@ -33,17 +34,14 @@ const Home = () => {
   const [paymentSuccessModal, setPaymentSuccessModal] = useState(false);
 
   // Redirect if user is not signed in
-  if (!user) return <Redirect href="/(auth)/SignIn" />;
+  if (!user) {
+    return <Redirect href="/(auth)/SignIn" />;
+  }
 
   // If all is well, then render the home page
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar
-        animated
-        style="light"
-        backgroundColor={Colors.dark.primaryOrange}
-      />
-
+      <StatusBar style="light" backgroundColor={Colors.dark.primaryOrange} />
       {/* Scroll View holding Home Page content */}
       <ScrollView
         contentContainerStyle={[styles.scrollView]}
@@ -55,7 +53,6 @@ const Home = () => {
           auth={auth!}
           refreshBalanceAfterSuccess={refreshBalanceAfterSuccess}
         />
-
         {/* Our Services Grid */}
         <ServicesGrid
           setShowDetailModal={setShowDetailModal}

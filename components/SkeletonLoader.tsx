@@ -57,6 +57,5 @@ export default SkeletonLoader;
 const styles = StyleSheet.create({
   box: {
     borderRadius: 6,
-    maxWidth: '50%',
   },
 });

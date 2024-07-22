@@ -17,6 +17,8 @@ type CustomTextInputProp = {
   bgColor?: string;
   keyBoardType?: KeyboardTypeOptions;
   returnType?: ReturnKeyTypeOptions;
+  extraStyles?: any;
+  containerStyle?: any;
 };
 
 const CustomTextInput = ({
@@ -27,11 +29,14 @@ const CustomTextInput = ({
   bgColor,
   keyBoardType = 'default',
   returnType = 'next',
+  extraStyles,
+  containerStyle,
 }: CustomTextInputProp) => {
   return (
-    <View>
+    <View style={containerStyle && containerStyle}>
       <TextInput
         style={[
+          extraStyles && extraStyles,
           styles.input,
           {
             color: textColor ? textColor : Colors.dark.primaryHighlight,

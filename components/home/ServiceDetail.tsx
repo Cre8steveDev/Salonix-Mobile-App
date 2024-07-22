@@ -11,7 +11,6 @@ import { ActivityIndicator } from 'react-native';
 import { Image } from 'expo-image';
 import React, { useEffect, useState } from 'react';
 import Colors from '@/constants/Colors';
-import blurhash from '@/constants/BlurHash';
 import API from '@/constants/API';
 import useToast from '../Toasts';
 import { Ionicons } from '@expo/vector-icons';
@@ -39,6 +38,7 @@ const ServiceDetailComp = ({
   setShowBookingModal,
   setServicePrice,
 }: ServiceDetailCompProp) => {
+  // Define Component States.
   const [loading, setLoading] = useState(false);
   const [userRating, setUserRating] = useState({ userId: '', rating: 0 });
   const [serviceDetail, setServiceDetail] = useState<ServiceDetail | null>(
@@ -57,6 +57,7 @@ const ServiceDetailComp = ({
       } catch (error) {
         console.log(error);
         useToast('Error fetching service detail.', 'red', 'white');
+        setShowDetailModal(false);
       }
       setLoading(false);
     };
@@ -177,9 +178,11 @@ const styles = StyleSheet.create({
   },
 
   headingSubContainer: {},
+
   sectionContainer: {
     paddingHorizontal: 20,
   },
+
   serviceName: {
     fontSize: 30,
     fontFamily: 'PoppinsExtraBold',
@@ -238,7 +241,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    opacity: 0.5,
+    opacity: 0.9,
     backgroundColor: Colors.dark.primaryDark,
   },
 

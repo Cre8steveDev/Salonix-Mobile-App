@@ -49,3 +49,15 @@ type ComposeBookingDetailType = {
   fullName: string;
   gender: string;
 };
+
+type BookedAppointmentCardData = {
+  email?: string;
+  gender?: string;
+  fullName?: string;
+  chosenService: string;
+  price: number;
+  date: string;
+  startTime: string;
+  endTime: string;
+  _id: string;
+};
