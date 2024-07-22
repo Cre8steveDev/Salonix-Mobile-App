@@ -34,7 +34,6 @@ const RefreshTokenProvider = ({
 
           // Dispatch Refresh token to update the global state.
         } catch (error) {
-          console.log(error);
           dispatch(logOut());
           useToast('Session has expired. Please log out and log in again.');
         }

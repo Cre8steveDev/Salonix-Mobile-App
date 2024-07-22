@@ -16,7 +16,6 @@ export const authSlice = createSlice({
       if (state.firstTimer) {
         state.firstTimer = false;
       }
-      console.log(state.auth);
     },
 
     refreshTokenSuccess: (state, action) => {

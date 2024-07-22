@@ -45,7 +45,6 @@ const MiniDashboard = ({
 
   // Get Wallet Balance
   useEffect(() => {
-    console.log('Auth in MIniDashBoard', auth);
     if (!auth) return;
     // Get current time to prevent attempting to check balance
     // when token is expired

@@ -114,7 +114,7 @@ export const EmptyList = () => {
   return (
     <View style={styles.emptyContainer}>
       <Text style={styles.emptyHeading}>Ooops! 🫠</Text>
-      <Text style={styles.emptySubtitle}>No Styles to show at the moment.</Text>
+      <Text style={styles.emptySubtitle}>Nothing to show at the moment.</Text>
     </View>
   );
 };
@@ -156,7 +156,22 @@ const styles = StyleSheet.create({
   headingLink: {
     color: Colors.dark.primaryOrange,
   },
-  emptyContainer: {},
-  emptyHeading: {},
-  emptySubtitle: {},
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  emptyHeading: {
+    fontSize: 30,
+    color: 'white',
+    fontFamily: 'PoppinsExtraBold',
+    textAlign: 'center',
+  },
+  emptySubtitle: {
+    color: 'white',
+    textAlign: 'center',
+    fontFamily: 'PoppinsRegular',
+    fontSize: 16,
+  },
 });

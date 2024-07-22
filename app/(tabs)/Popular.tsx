@@ -239,7 +239,22 @@ const styles = StyleSheet.create({
   headingLink: {
     color: Colors.dark.primaryOrange,
   },
-  emptyContainer: {},
-  emptyHeading: {},
-  emptySubtitle: {},
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  emptyHeading: {
+    fontSize: 30,
+    color: 'white',
+    fontFamily: 'PoppinsExtraBold',
+    textAlign: 'center',
+  },
+  emptySubtitle: {
+    color: 'white',
+    textAlign: 'center',
+    fontFamily: 'PoppinsRegular',
+    fontSize: 16,
+  },
 });
